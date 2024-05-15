@@ -1,6 +1,6 @@
 import { letters, numbers, symbols } from "@/constants-module/constants"
 
-export const randowPassword = (
+export const randomPassword = (
   passwordLength: number,
   withSymbols: boolean,
   withNumbers: boolean,

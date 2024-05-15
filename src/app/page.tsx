@@ -1,24 +1,24 @@
 'use client'
 
 import { ChangeEvent, useEffect, useState } from "react";
-import { randowPassword } from "@/helpers/generate-password";
+import { randomPassword } from "@/helpers/generate-password";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [password, setPassword] = useState<string>();
-  const [passwordLength, setPasswordLength] = useState<number>(10);
+  const [passwordLength, setPasswordLength] = useState<number>(12);
   const [passwordType, setPasswordType] = useState<'Random' | 'Memorable' | 'Pin'>('Random');
   const [withNumbers, setWithNumbers] = useState<boolean>(true);
   const [withSymbols, setWithSymbols] = useState<boolean>(true);
 
 
   useEffect(() => {
-    setPassword(randowPassword(passwordLength, withSymbols, withNumbers, passwordType))
+    setPassword(randomPassword(passwordLength, withSymbols, withNumbers, passwordType))
   }, [passwordLength, withSymbols, withNumbers, passwordType])
 
   const regeneratePassword = () => {
-    setPassword(randowPassword(passwordLength, withSymbols, withNumbers, passwordType))
+    setPassword(randomPassword(passwordLength, withSymbols, withNumbers, passwordType))
   }
 
   const noSymbols = (e: ChangeEvent<HTMLInputElement>) => {
